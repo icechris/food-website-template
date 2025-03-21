@@ -25,7 +25,118 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
 
+    <style>
+
+
+
+.icon-wrapper {
+    position: absolute; /* Instead of fixed */
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps icons in the background */
+    pointer-events: none; /* Prevents interference with content */
+}
+
+
+.icon-wrapper i {
+    position: absolute;
+    font-size: calc(20px + 2vw); /* Adjust size based on screen */
+    color: rgba(0, 0, 0, 0.1); /* Default light grey */
+    animation: floatIcon 10s infinite ease-in-out alternate;
+}
+
+/* Darker black icons */
+.icon-wrapper i:nth-child(even) {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for movement */
+@keyframes floatIcon {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(20px) rotate(10deg); }
+}
+
+
+    .navbar-nav .nav-link.text-danger::after {
+        content: ''; /* Creates the underline */
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 1px;
+        background-color: red; /* Underline color */
+        transition: width 0.3s ease-in-out; /* Smooth width animation */
+    }
+
+    .navbar-nav .nav-link.text-danger:hover {
+        color: red !important; /* Ensures the text remains red */
+    }
+
+    .navbar-nav .nav-link.text-danger:hover::after {
+        width: 20%; /* Expands the underline smoothly */
+    }
+    .food, .food-item {
+    background-color: transparent !important; /* Removes any background color */
+    box-shadow: none !important; /* Removes any unwanted shadow */
+    border: none !important; /* Removes any border that might cause an effect */
+}
+
+
+    .food-item img {
+        width: 100%;  /* Ensures the image takes full width of container */
+        height: 100%; /* Ensures the image fills the height of the container */
+        object-fit: cover; /* Prevents distortion and maintains aspect ratio */
+        border-radius: 10px; /* Optional: Adds rounded corners */
+    }
+
+    .food {
+        max-width: 800px; /* Optional: Set a max-width if needed */
+        margin: auto; /* Centers the container */
+    }
+      .food-item {
+        width: 100%;
+        height: 100%;
+    }
+
+    .full-img {
+        width: 100%;
+        height: 300px; /* Adjust height as needed */
+        object-fit: cover; /* Ensures image covers the entire container without distortion */
+    }
+
+    @media (max-width: 768px) {
+        .full-img {
+            height: auto; /* On mobile, keep natural aspect ratio */
+        }
+    }
+
+      @keyframes eating {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-10deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(10deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .eating-icon {
+        font-size: 1.5rem; /* Adjust size */
+        color: #ff6600; /* Pizza-themed color */
+        animation: eating 0.8s infinite ease-in-out; /* Smooth eating motion */
+    }
+
+
+</style>
+
     <body>
+
+        <div class="icon-wrapper">
+    <i class="fas fa-pizza-slice" style="top: 10%; left: 5%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 30%; left: 15%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 50%; left: 50%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
+</div>
+
         
 
         <!-- New one  -->
@@ -36,14 +147,14 @@
         
         <!-- Toggler for mobile screens -->
          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="fas fa-pizza-slice"></span>
                 </button>
         <!-- Navbar items -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Menu</a>
-                <a href="#" class="nav-item nav-link">Location</a>
+            <div class="navbar-nav ">
+                <a href="#" class="nav-item nav-link active ">Home</a>
+                <a href="#" class="nav-item nav-link text-danger">Menu</a>
+                <a href="#" class="nav-item nav-link text-danger">Location</a>
 
                 <!-- Dropdown menu for extra pages -->
                 <!-- <div class="nav-item dropdown">
@@ -56,7 +167,7 @@
                     </ul>
                 </div> -->
 
-                <a href="#" class="nav-item nav-link">Contact</a>
+                <a href="#" class="nav-item nav-link text-danger">Contact</a>
             </div>
         </div>
     </div>
@@ -65,7 +176,7 @@
         <!-- Nav Bar End -->
 
 
-        <!-- Carousel Start -->
+        <!-- Carousel Start --
         <div class="carousel">
             <div class="container-fluid">
                 <div class="owl-carousel">
@@ -127,21 +238,7 @@
       
         
         <!-- Video Modal Start-->
-        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>        
-                        <!-- 16:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
+       
         <!-- Video Modal End -->
         
         
@@ -246,37 +343,60 @@
         
         
         <!-- Food Start -->
-        <div class="food">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4">
-                        <div class="food-item">
-                          <img src="/img/logo3-removebg-preview.png" alt="" width="100px">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <img src="/img/logo3-removebg-preview.png" alt="" width="100px">
-                          </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <img src="/img/logo3-removebg-preview.png" alt="" width="100px">
-                          </div>
-                    </div>
+    <div class="food">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="food-item">
+                    <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
                 </div>
             </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="food-item">
+                    <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
+                </div>
+            </div>
+            
         </div>
+    </div>
+</div>
+
+
+<div class="icon-wrapper">
+    <i class="fas fa-pizza-slice" style="top: 10%; right: 5%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 30%; right: 15%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 50%; right: 50%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
+    <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
+</div>
+
         <!-- Food End -->
         
-        
+    <div class="icon-wrapper">
+    <!-- Smoothie -->
+    <i class="fas fa-mug-hot" style="top: 5%; left: 10%;"></i>
+    <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
+
+    <!-- Burger -->
+    <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
+    <i class="fas fa-hamburger" style="top: 70%; left: 70%;"></i>
+
+    <!-- Biscuit (Using Cookie Icon) -->
+    <i class="fas fa-cookie-bite" style="top: 30%; left: 20%;"></i>
+    <i class="fas fa-cookie-bite" style="top: 60%; left: 90%;"></i>
+
+    <!-- Jollof/Rice (Using Bowl-Rice Icon) -->
+    <i class="fas fa-bowl-rice" style="top: 40%; left: 60%;"></i>
+    <i class="fas fa-bowl-rice" style="top: 90%; left: 30%;"></i>
+</div>
+    
         <!-- Menu Start -->
         <div class="menu">
             <div class="container">
-                <div class="section-header text-center">
-                    <p> Menu</p>
-                    <h2>Pizza Republic Menu</h2>
-                </div>
+               <div class="section-header text-center">
+    <p>Pizza Republic Menu <i class="fas fa-utensils eating-icon"></i></p>
+    <h2>Explore our menu</h2>
+</div>
                 <div class="menu-tab">
                     <ul class="nav nav-pills justify-content-center">
                         <li class="nav-item">
@@ -463,17 +583,37 @@
 
 
         <!-- Footer Start -->
+
+<div class="icon-wrapper">
+    <!-- Smoothie -->
+    <i class="fas fa-mug-hot" style="top: 5%; left: 10%;"></i>
+    <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
+
+    <!-- Burger -->
+    <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
+    <i class="fas fa-hamburger" style="top: 70%; left: 70%;"></i>
+
+    <!-- Biscuit (Using Cookie Icon) -->
+    <i class="fas fa-cookie-bite" style="top: 30%; left: 20%;"></i>
+    <i class="fas fa-cookie-bite" style="top: 60%; left: 90%;"></i>
+
+    <!-- Jollof/Rice (Using Bowl-Rice Icon) -->
+    <i class="fas fa-bowl-rice" style="top: 40%; left: 60%;"></i>
+    <i class="fas fa-bowl-rice" style="top: 90%; left: 30%;"></i>
+</div>
+
         <div class="footer">
+            
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="footer-contact">
-                                    <h2>Our Address</h2>
+                                    <h2>Get in Touch</h2>
                                     <p><i class="fa fa-map-marker-alt"></i>KNUST, Afrifa Juntion Kumasi</p>
-                                    <p><i class="fa fa-phone-alt"></i>+233 345 67890</p>
-                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <p><i class="fa fa-phone-alt"></i>+233 552 297 465</p>
+                                    <p><i class="fa fa-envelope"></i>pizzarepublicgh@gmail.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
                                         <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -483,38 +623,55 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="footer-link">
                                     <h2>Quick Links</h2>
-                                    <a href="">Terms of use</a>
-                                    <a href="">Privacy policy</a>
-                                    <a href="">Cookies</a>
-                                    <a href="">Help</a>
-                                    <a href="">FQAs</a>
+                                    <a href="">Menu</a>
+                                    <a href="">Fundraising</a>
+                                    <a href="">Co-brands</a>
+                                   
                                 </div>
                             </div>
+
+                            <div class="col-md-3">
+                        <div class="footer-link">
+                            <h2>Food</h2>
+                          
+                                    <a href="">Nutrition & Allergy</a>
+                                    
+                            <!-- <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn custom-btn">Submit</button>
+                            </div> -->
+                            
+                        </div>
+
+                        
+
+                        
+                    </div>
                         </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="footer-link">
-                            <h2>Newsletter</h2>
+                    
+
+                     <div class="col-md-3">
+                      <div class="footer-link">
+                            <h2>Legal</h2>
                            <a href="">Terms of use</a>
                                     <a href="">Privacy policy</a>
-                                    <a href="">Cookies</a>
-                                    <a href="">Help</a>
                                     <a href="">FQAs</a>
                             <!-- <div class="form">
                                 <input class="form-control" placeholder="Email goes here">
                                 <button class="btn custom-btn">Submit</button>
                             </div> -->
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>
             <div class="copyright">
                 <div class="container">
-                    <p>Copyright &copy; 2025 <a href="#">Pizza Republic</a>, All Right Reserved.</p>
-                    <p>.</a></p>
+                    <p>Copyright &copy; 2025 <a href="#">Pizza Republic</a>, All Right Reserved. Version 1.0</p>
+                    <p></a></p> 
                 </div>
             </div>
         </div>
