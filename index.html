@@ -1,169 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Pizza Republic</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
 
-        <!-- Favicon -->
-        <link href="img/logo3.jpg" rel="icon">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Republic</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
-        
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-        <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="img/logo3.jpg" rel="icon">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
 
-    <style>
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<style>
+    .icon-wrapper {
+        position: absolute;
+        /* Instead of fixed */
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        /* Keeps icons in the background */
+        pointer-events: none;
+        /* Prevents interference with content */
+    }
 
 
+    .icon-wrapper i {
+        position: absolute;
+        font-size: calc(20px + 2vw);
+        /* Adjust size based on screen */
+        color: rgba(0, 0, 0, 0.1);
+        /* Default light grey */
+        animation: floatIcon 10s infinite ease-in-out alternate;
+    }
 
-.icon-wrapper {
-    position: absolute; /* Instead of fixed */
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Keeps icons in the background */
-    pointer-events: none; /* Prevents interference with content */
-}
+    /* Darker black icons */
+    .icon-wrapper i:nth-child(even) {
+        color: rgba(0, 0, 0, 0.3);
+    }
 
+    /* Animation for movement */
+    @keyframes floatIcon {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
 
-.icon-wrapper i {
-    position: absolute;
-    font-size: calc(20px + 2vw); /* Adjust size based on screen */
-    color: rgba(0, 0, 0, 0.1); /* Default light grey */
-    animation: floatIcon 10s infinite ease-in-out alternate;
-}
-
-/* Darker black icons */
-.icon-wrapper i:nth-child(even) {
-    color: rgba(0, 0, 0, 0.3);
-}
-
-/* Animation for movement */
-@keyframes floatIcon {
-    0% { transform: translateY(0px) rotate(0deg); }
-    100% { transform: translateY(20px) rotate(10deg); }
-}
+        100% {
+            transform: translateY(20px) rotate(10deg);
+        }
+    }
 
 
     .navbar-nav .nav-link.text-danger::after {
-        content: ''; /* Creates the underline */
+        content: '';
+        /* Creates the underline */
         position: absolute;
         left: 0;
         bottom: 0;
         width: 0%;
         height: 1px;
-        background-color: red; /* Underline color */
-        transition: width 0.3s ease-in-out; /* Smooth width animation */
+        background-color: red;
+        /* Underline color */
+        transition: width 0.3s ease-in-out;
+        /* Smooth width animation */
     }
 
     .navbar-nav .nav-link.text-danger:hover {
-        color: red !important; /* Ensures the text remains red */
+        color: red !important;
+        /* Ensures the text remains red */
     }
 
     .navbar-nav .nav-link.text-danger:hover::after {
-        width: 20%; /* Expands the underline smoothly */
+        width: 20%;
+        /* Expands the underline smoothly */
     }
-    .food, .food-item {
-    background-color: transparent !important; /* Removes any background color */
-    box-shadow: none !important; /* Removes any unwanted shadow */
-    border: none !important; /* Removes any border that might cause an effect */
-}
+
+    .food,
+    .food-item {
+        background-color: transparent !important;
+        /* Removes any background color */
+        box-shadow: none !important;
+        /* Removes any unwanted shadow */
+        border: none !important;
+        /* Removes any border that might cause an effect */
+    }
 
 
     .food-item img {
-        width: 100%;  /* Ensures the image takes full width of container */
-        height: 100%; /* Ensures the image fills the height of the container */
-        object-fit: cover; /* Prevents distortion and maintains aspect ratio */
-        border-radius: 10px; /* Optional: Adds rounded corners */
+        width: 100%;
+        /* Ensures the image takes full width of container */
+        height: 100%;
+        /* Ensures the image fills the height of the container */
+        object-fit: cover;
+        /* Prevents distortion and maintains aspect ratio */
+        border-radius: 10px;
+        /* Optional: Adds rounded corners */
     }
 
     .food {
-        max-width: 800px; /* Optional: Set a max-width if needed */
-        margin: auto; /* Centers the container */
+        max-width: 800px;
+        /* Optional: Set a max-width if needed */
+        margin: auto;
+        /* Centers the container */
     }
-      .food-item {
+
+    .food-item {
         width: 100%;
         height: 100%;
     }
 
     .full-img {
         width: 100%;
-        height: 300px; /* Adjust height as needed */
-        object-fit: cover; /* Ensures image covers the entire container without distortion */
+        height: 300px;
+        /* Adjust height as needed */
+        object-fit: cover;
+        /* Ensures image covers the entire container without distortion */
     }
 
     @media (max-width: 768px) {
         .full-img {
-            height: auto; /* On mobile, keep natural aspect ratio */
+            height: auto;
+            /* On mobile, keep natural aspect ratio */
         }
     }
 
-      @keyframes eating {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(-10deg); }
-        50% { transform: rotate(0deg); }
-        75% { transform: rotate(10deg); }
-        100% { transform: rotate(0deg); }
+    @keyframes eating {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(-10deg);
+        }
+
+        50% {
+            transform: rotate(0deg);
+        }
+
+        75% {
+            transform: rotate(10deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
     }
 
     .eating-icon {
-        font-size: 1.5rem; /* Adjust size */
-        color: #ff6600; /* Pizza-themed color */
-        animation: eating 0.8s infinite ease-in-out; /* Smooth eating motion */
+        font-size: 1.5rem;
+        /* Adjust size */
+        color: #ff6600;
+        /* Pizza-themed color */
+        animation: eating 0.8s infinite ease-in-out;
+        /* Smooth eating motion */
     }
-
-
 </style>
 
-    <body>
+<body>
 
-        <div class="icon-wrapper">
-    <i class="fas fa-pizza-slice" style="top: 10%; left: 5%;"></i>
+    <div class="icon-wrapper">
+        <i class="fas fa-pizza-slice" style="top: 10%; left: 5%;"></i>
 
-      <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
+        <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
 
-    <!-- Burger -->
-    <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 30%; left: 15%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 50%; left: 50%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
-</div>
-
-        
+        <!-- Burger -->
+        <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 30%; left: 15%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 50%; left: 50%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
+    </div>
 
 
-        <!-- New one  -->
-         <div class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <img src="/img/logo3-removebg-preview.png" alt="Logo" height="90px">
-        
-        <!-- Toggler for mobile screens -->
-         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="fas fa-pizza-slice"></span>
-                </button>
-        <!-- Navbar items -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-            <div class="navbar-nav ">
-                <a href="#" class="nav-item nav-link active ">Home</a>
-                <a href="#" class="nav-item nav-link text-danger">Menu</a>
-                <a href="#" class="nav-item nav-link text-danger">Location</a>
 
-                <!-- Dropdown menu for extra pages -->
-                <!-- <div class="nav-item dropdown">
+
+    <!-- New one  -->
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <img src="/img/logo3-removebg-preview.png" alt="Logo" height="90px">
+
+            <!-- Toggler for mobile screens -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="fas fa-pizza-slice"></span>
+            </button>
+            <!-- Navbar items -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <div class="navbar-nav ">
+                    <a href="#" class="nav-item nav-link active ">Home</a>
+                    <a href="#" class="nav-item nav-link text-danger">Menu</a>
+                    <a href="#" class="nav-item nav-link text-danger">Location</a>
+
+                    <!-- Dropdown menu for extra pages -->
+                    <!-- <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Pages
                     </a>
@@ -173,16 +216,16 @@
                     </ul>
                 </div> -->
 
-                <a href="#" class="nav-item nav-link text-danger">Contact</a>
+                    <a href="#" class="nav-item nav-link text-danger">Contact</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-        <!-- Nav Bar End -->
+    <!-- Nav Bar End -->
 
 
-        <!-- Carousel Start --
+    <!-- Carousel Start --
         <div class="carousel">
             <div class="container-fluid">
                 <div class="owl-carousel">
@@ -234,22 +277,22 @@
                 </div>
             </div>
         </div>
-        <!-- Carousel End -->
-        
-        
-       
-        <!-- Booking End -->
-        
+          Carousel End -->
 
-      
-        
-        <!-- Video Modal Start-->
-       
-        <!-- Video Modal End -->
-        
-        
-        <!-- Feature Start -->
-        <!-- <div class="feature">
+
+
+    <!-- Booking End -->
+
+
+
+
+    <!-- Video Modal Start-->
+
+    <!-- Video Modal End -->
+
+
+    <!-- Feature Start -->
+    <!-- <div class="feature">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
@@ -345,335 +388,339 @@
                 </div>
             </div>
         </div> -->
-        <!-- Feature End -->
-        
-        
-        <!-- Food Start -->
+    <!-- Feature End -->
+
+
+    <!-- Food Start -->
     <div class="food">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="food-item">
-                    <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="food-item">
+                        <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="food-item">
-                    <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
+                <div class="col-lg-6 col-md-6">
+                    <div class="food-item">
+                        <img src="/img/opening.jpg" alt="Food Image" class="img-fluid w-100">
+                    </div>
                 </div>
+
             </div>
-            
         </div>
     </div>
-</div>
 
 
-<div class="icon-wrapper">
-    <i class="fas fa-pizza-slice" style="top: 10%; right: 5%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 30%; right: 15%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 50%; right: 50%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
-    <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
-</div>
+    <div class="icon-wrapper">
+        <i class="fas fa-pizza-slice" style="top: 10%; right: 5%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 30%; right: 15%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 50%; right: 50%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 70%; left: 80%;"></i>
+        <i class="fas fa-pizza-slice" style="top: 90%; left: 40%;"></i>
+    </div>
 
-        <!-- Food End -->
-        
-         
-        <!-- Menu Start -->
-        <div class="menu">
-            <div class="container">
-               <div class="section-header text-center">
-    <p>Pizza Republic Menu <i class="fas fa-utensils eating-icon"></i></p>
-    <h2>Explore our menu</h2>
-</div>
-                <div class="menu-tab">
-                    <ul class="nav nav-pills justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#burgers">Pasta/ Noodles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#snacks">Pizza</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#beverages"> Rice</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#beverages">View All Deals & Menu</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="burgers" class="container tab-pane active">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Chicken/Beef Lo mein noodles</span> <strong>GHS45.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Penne Arrabiata</span> <strong>GHC45.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Chicken Liniguine</span> <strong>GHC45.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Spaghetti</span> <strong>GHC45.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-burger-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="snacks" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>GHC15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bread besan Toast</span> <strong>GHC35.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Healthy soya nugget snacks</span> <strong>$20.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Tandoori Soya Chunks</span> <strong>GHC30.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-snack-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="beverages" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Single Cup Brew</span> <strong>GHC7.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caffe Americano</span> <strong>GHC9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caramel Macchiato</span> <strong>GHC15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>GHC8.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>GHC12.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-beverage-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Food End -->
+
+
+    <!-- Menu Start -->
+    <div class="menu">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Pizza Republic Menu <i class="fas fa-utensils eating-icon"></i></p>
+                <h2>Explore our menu</h2>
             </div>
-        </div>
-        <!-- Menu End -->
-        
-    
-        
-        
-       
-        
-      
-
-     
-
-
-        <!-- Footer Start -->
-
-<div class="icon-wrapper">
-    <!-- Smoothie -->
-    <i class="fas fa-mug-hot" style="top: 5%; left: 10%;"></i>
-    <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
-
-    <!-- Burger -->
-    <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
-    <i class="fas fa-hamburger" style="top: 70%; left: 70%;"></i>
-
-    <!-- Biscuit (Using Cookie Icon) -->
-    <i class="fas fa-cookie-bite" style="top: 30%; left: 20%;"></i>
-    <i class="fas fa-cookie-bite" style="top: 60%; left: 90%;"></i>
-
-    <!-- Jollof/Rice (Using Bowl-Rice Icon) -->
-    <i class="fas fa-bowl-rice" style="top: 40%; left: 60%;"></i>
-    <i class="fas fa-bowl-rice" style="top: 90%; left: 30%;"></i>
-</div>
-
-        <div class="footer">
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
+            <div class="menu-tab">
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#burgers">Pasta/ Noodles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#snacks">Pizza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#beverages"> Rice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#beverages">View All Deals & Menu</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="burgers" class="container tab-pane active">
                         <div class="row">
-                            <div class="col-md-5">
-                                <div class="footer-contact">
-                                    <h2>Get in Touch</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>KNUST, Afrifa Juntion Kumasi</p>
-                                    <p><i class="fa fa-phone-alt"></i>+233 552 297 465</p>
-                                    <p><i class="fa fa-envelope"></i>pizzarepublicgh@gmail.com</p>
-                                    <div class="footer-social">
-                                        <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href=""><i class="fab fa-youtube"></i></a>
-                                        <a href=""><i class="fab fa-instagram"></i></a>
-                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <div class="col-lg-7 col-md-12">
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-burger.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Chicken/Beef Lo mein noodles</span> <strong>GHS45.00</strong></h3>
+                                        <p>Stir-fried noodles tossed with tender chicken beef or beef, crisp vegetables
+                                            and savory sauce base</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-burger.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Penne Arrabiata</span> <strong>GHC45.00</strong></h3>
+                                        <p>Penne pasta tossed in a spciy garlic infused tomato sauce</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-burger.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Chicken Liniguine</span> <strong>GHC45.00</strong></h3>
+                                        <p>Flavorful linguine tossed in chill infused sauce with garlic, olive oil and
+                                            seasoned to perfection served with grilled chicken</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-burger.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Chicken Pizza </span> <strong>GHC45.00</strong></h3>
+                                        <p>Grilled chicken, mariana sauce, green peppers, mozzarella cheese</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-block">
+                                <img src="img/menu-burger-img.jpg" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="snacks" class="container tab-pane fade">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-snack.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Spaghetti</span> <strong>GHC45.00</strong></h3>
+                                        <p>Aromatic spaghetti tossed with golden caramelized onions, sauteed garlic,
+                                            served with chicken chunks</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-snack.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Beef Pizza</span> <strong>GHC35.00</strong></h3>
+                                        <p>Beef chunks, mariana sauce, green peppers, mozzarela cheese</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-snack.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Magarita Pizza</span> <strong>$20.00</strong></h3>
+                                        <p>Marinara, mozzarella cheese, basil leaves, olive oil</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-snack.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Chicken Pizza</span> <strong>GHC30.00</strong></h3>
+                                        <p>Grilled chicken, marinara sauce, green bell pepper, onions, mozzarella</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="footer-link">
-                                    <h2>Quick Links</h2>
-                                    <a href="">Menu</a>
-                                    <a href="">Fundraising</a>
-                                    <a href="">Co-brands</a>
-                                   
+                            <div class="col-lg-5 d-none d-lg-block">
+                                <img src="img/menu-snack-img.jpg" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="beverages" class="container tab-pane fade">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-beverage.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Single Cup Brew</span> <strong>GHC7.00</strong></h3>
+                                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-beverage.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Caffe Americano</span> <strong>GHC9.00</strong></h3>
+                                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-beverage.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Caramel Macchiato</span> <strong>GHC15.00</strong></h3>
+                                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-beverage.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Standard black coffee</span> <strong>GHC8.00</strong></h3>
+                                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    </div>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-img">
+                                        <img src="img/menu-beverage.jpg" alt="Image">
+                                    </div>
+                                    <div class="menu-text">
+                                        <h3><span>Standard black coffee</span> <strong>GHC12.00</strong></h3>
+                                        <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-3">
-                        <div class="footer-link">
-                            <h2>Food</h2>
-                          
-                                    <a href="">Nutrition & Allergy</a>
-                                    
-                            <!-- <div class="form">
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn custom-btn">Submit</button>
-                            </div> -->
-                            
-                        </div>
-
-                        
-
-                        
-                    </div>
+                            <div class="col-lg-5 d-none d-lg-block">
+                                <img src="img/menu-beverage-img.jpg" alt="Image">
+                            </div>
                         </div>
                     </div>
-                    
-
-                     <div class="col-md-3">
-                      <div class="footer-link">
-                            <h2>Legal</h2>
-                           <a href="">Terms of use</a>
-                                    <a href="">Privacy policy</a>
-                                    <a href="">FQAs</a>
-                            <!-- <div class="form">
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn custom-btn">Submit</button>
-                            </div> -->
-                        </div>  
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>Copyright &copy; 2025 <a href="#">Pizza Republic</a>, All Right Reserved. Version 1.0</p>
-                    <p></a></p> 
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+    </div>
+    <!-- Menu End -->
 
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/tempusdominus/js/moment.min.js"></script>
-        <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+
+    <div class="icon-wrapper">
+        <!-- Smoothie -->
+        <i class="fas fa-mug-hot" style="top: 5%; left: 10%;"></i>
+        <i class="fas fa-mug-hot" style="top: 80%; left: 20%;"></i>
+
+        <!-- Burger -->
+        <i class="fas fa-hamburger" style="top: 20%; left: 50%;"></i>
+        <i class="fas fa-hamburger" style="top: 70%; left: 70%;"></i>
+
+        <!-- Biscuit (Using Cookie Icon) -->
+        <i class="fas fa-cookie-bite" style="top: 30%; left: 20%;"></i>
+        <i class="fas fa-cookie-bite" style="top: 60%; left: 90%;"></i>
+
+        <!-- Jollof/Rice (Using Bowl-Rice Icon) -->
+        <i class="fas fa-bowl-rice" style="top: 40%; left: 60%;"></i>
+        <i class="fas fa-bowl-rice" style="top: 90%; left: 30%;"></i>
+    </div>
+
+    <div class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="footer-contact">
+                                <h2>Get in Touch</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>KNUST, Afrifa Juntion Kumasi</p>
+                                <p><i class="fa fa-phone-alt"></i>+233 552 297 465</p>
+                                <p><i class="fa fa-envelope"></i>pizzarepublicgh@gmail.com</p>
+                                <div class="footer-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-link">
+                                <h2>Quick Links</h2>
+                                <a href="">Menu</a>
+                                <a href="">Fundraising</a>
+                                <a href="">Co-brands</a>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="footer-link">
+                                <h2>Food</h2>
+
+                                <a href="">Nutrition & Allergy</a>
+
+                                <!-- <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn custom-btn">Submit</button>
+                            </div> -->
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="footer-link">
+                        <h2>Legal</h2>
+                        <a href="">Terms of use</a>
+                        <a href="">Privacy policy</a>
+                        <a href="">FQAs</a>
+                        <!-- <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn custom-btn">Submit</button>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright &copy; 2025 <a href="#">Pizza Republic</a>, All Right Reserved. Version 1.0</p>
+                <p></a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
 </html>
