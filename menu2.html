@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Johnny Rockets Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous"/>
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap" 
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ed1b2f;  /* Johnny Rockets Red */
+      --secondary-color: #333333;
+      --cream-bg: #f7f0e6;       /* Light cream background */
+      --heading-font: 'Montserrat', sans-serif;
+      --body-font: 'Open Sans', sans-serif;
+    }
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      background-color: var(--cream-bg);
+      color: var(--secondary-color);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar-brand img {
+      max-height: 50px;
+    }
+    .navbar-nav .nav-link {
+      color: var(--secondary-color) !important;
+      margin: 0 0.75rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .navbar-nav .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    .order-now-btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .order-now-btn:hover {
+      background-color: #d01627;
+      transform: scale(1.05);
+    }
+    /* Hero Section */
+    .hero-section {
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, rgba(237,27,47,0.85), rgba(237,27,47,0.6)),
+                  url('https://via.placeholder.com/1200x600?text=Delicious+Food') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+    .hero-section .hero-text h1 {
+      font-family: var(--heading-font);
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-section .hero-text p {
+      font-size: 1.15rem;
+      max-width: 500px;
+    }
+    .hero-img img {
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    /* Category Nav */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .category-link {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--primary-color);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .category-link:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    /* Section Headings */
+    .section-heading {
+      text-align: center;
+      font-family: var(--heading-font);
+      font-size: 2.25rem;
+      color: var(--primary-color);
+      margin-top: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-subheading {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: var(--secondary-color);
+    }
+    /* Menu Cards */
+    .menu-card {
+      background-color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 1.5rem;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .menu-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .menu-card h5 {
+      font-family: var(--heading-font);
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .menu-card .price {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    /* Footer Section */
+    .footer-section {
+      padding: 3rem 1rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+    }
+    .footer-section h4 {
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+    .footer-section p {
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+    .social-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-gallery img {
+      width: 120px;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .social-gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Johnny Rockets Logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Locations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Franchise</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Gift Cards</a></li>
+          <li class="nav-item ms-2"><button class="order-now-btn">ORDER NOW</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 hero-text">
+          <h1>Explore <br/>Our Menu</h1>
+          <p>Enjoy a range of all-American classics—from juicy burgers and crispy fries to hand-spun shakes and more.</p>
+        </div>
+        <div class="col-md-6 hero-img">
+          <img src="https://via.placeholder.com/600x400?text=Burger+Fries+Milkshake" alt="Burger and Milkshake" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY NAVIGATION -->
+  <nav class="categories">
+    <a href="#starters" class="category-link">STARTERS</a>
+    <a href="#pastries" class="category-link">PASTRIES</a>
+    <a href="#pizza" class="category-link">PIZZA</a>
+    <a href="#sandwiches" class="category-link">SANDWICHES</a>
+    <a href="#chicken-bags" class="category-link">CHICKEN BAGS</a>
+    <a href="#beef-plates" class="category-link">BEEF PLATES</a>
+    <a href="#rice" class="category-link">RICE</a>
+    <a href="#pasta-noodles" class="category-link">PASTA/NOODLES</a>
+    <a href="#burgers" class="category-link">BURGERS</a>
+    <a href="#milksakes" class="category-link">MILKSHAKES</a>
+    <a href="#breakfast-brunch" class="category-link">BREAKFAST/BRUNCH</a>
+    <a href="#salads" class="category-link">SALADS</a>
+    <a href="#chicken-wings" class="category-link">CHICKEN WINGS</a>
+    <a href="#drinks" class="category-link">DRINKS</a>
+  </nav>
+
+  <!-- MENU SECTIONS -->
+  <section id="starters" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">STARTERS</h2>
+      <div class="row">
+        <!-- Fried Yam Chips -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Fried Yam Chips <span class="price float-end">10</span></h5>
+            <p>Deep fried yams served with shito and hot pepper dip</p>
+          </div>
+        </div>
+        <!-- French fries -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>French fries <span class="price float-end">15</span></h5>
+            <p>Deep fried potato chips served with special dip</p>
+          </div>
+        </div>
+        <!-- Spring rolls -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Spring rolls <span class="price float-end">20</span></h5>
+            <p>4 Deep fried dough stuffed with beef and vegetables, served with hot pepper sauce</p>
+          </div>
+        </div>
+        <!-- Butter rolls -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Butter rolls <span class="price float-end">20</span></h5>
+            <p>Soft buttery dinner rolls served with Chocolate spread</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pastries" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">PASTRIES</h2>
+      <div class="row">
+        <!-- Meat pies -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Meat pies <span class="price float-end">15</span></h5>
+            <p>Baked savory pastry filled with beef and vegetables in gravy</p>
+          </div>
+        </div>
+        <!-- Brioche donuts -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Brioche donuts <span class="price float-end">15</span></h5>
+            <p>Buttery deep fried dough balls filled with chocolate</p>
+          </div>
+        </div>
+        <!-- Cinnamon rolls -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Cinnamon rolls <span class="price float-end">20</span></h5>
+            <p>Yeasted dough, rolled with a cinnamon-sugar filling served with sugar glaze</p>
+          </div>
+        </div>
+        <!-- Carrot cake -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Carrot cake <span class="price float-end">20</span></h5>
+            <p>Moist cake made with carrots & spices, topped with frosting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pizza" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">PIZZA</h2>
+      <div class="row">
+        <!-- Chicken pizza -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Chicken pizza</h5>
+            <p>Grilled chicken, marinara sauce, green bell pepper, onions, mozzarella</p>
+            <p><strong>Small: 70 &nbsp;&nbsp; Medium: 100 &nbsp;&nbsp; Large: 120</strong></p>
+          </div>
+        </div>
+        <!-- Beef pizza -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Beef pizza</h5>
+            <p>Beef chunks, marinara sauce, green peppers, mozzarella cheese</p>
+            <p><strong>Small: 70 &nbsp;&nbsp; Medium: 100 &nbsp;&nbsp; Large: 120</strong></p>
+          </div>
+        </div>
+        <!-- Margarita pizza -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Margarita pizza</h5>
+            <p>Marinara, mozzarella cheese, basil leaves, olive oil</p>
+            <p><strong>Small: 50 &nbsp;&nbsp; Medium: 65 &nbsp;&nbsp; Large: 80</strong></p>
+          </div>
+        </div>
+        <!-- Pepperoni pizza -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Pepperoni pizza</h5>
+            <p>Marinara sauce, pepperoni slices, mozzarella cheese</p>
+            <p><strong>Small: 70 &nbsp;&nbsp; Medium: 80 &nbsp;&nbsp; Large: 120</strong></p>
+          </div>
+        </div>
+        <!-- All seasons pizza -->
+        <div class="col-md-12 mb-4">
+          <div class="menu-card p-3">
+            <h5>All seasons pizza</h5>
+            <p>Chicken, beef, pepperoni, onions, mushrooms, black olives, marinara, mozzarella cheese</p>
+            <p><strong>Small: 80 &nbsp;&nbsp; Medium: 90 &nbsp;&nbsp; Large: 120</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sandwiches" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">SANDWICHES</h2>
+      <div class="row">
+        <!-- Cheese steak -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Cheese steak <span class="price float-end">80</span></h5>
+            <p>Hoagie roll, Ribeye steak, provolone cheese, caramelized onions, green bell peppers, mushrooms</p>
+          </div>
+        </div>
+        <!-- Turkish kasarli toast -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Turkish kasarli toast <span class="price float-end">50</span></h5>
+            <p>Hoagie roll, Beef sausage, tomato sauce, mozzarella cheese</p>
+          </div>
+        </div>
+        <!-- Grilled cheese -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Grilled cheese <span class="price float-end">40</span></h5>
+            <p>Hoagie, mozzarella cheese</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chicken-bags" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">CHICKEN BAGS</h2>
+      <div class="row">
+        <!-- 10 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>10 pieces crispy fried chicken <span class="price float-end">100</span></h5>
+          </div>
+        </div>
+        <!-- 15 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>15 pieces crispy fried chicken <span class="price float-end">130</span></h5>
+          </div>
+        </div>
+        <!-- 25 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>25 pieces crispy fried chicken <span class="price float-end">200</span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beef-plates" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">BEEF PLATES</h2>
+      <div class="row">
+        <!-- 0.5 KG platter -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>0.5 KG platter <span class="price float-end">85</span></h5>
+          </div>
+        </div>
+        <!-- 1 KG -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>1 KG <span class="price float-end">145</span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rice" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">RICE</h2>
+      <div class="row">
+        <!-- Smoky Jollof Rice -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Smoky Jollof Rice <span class="price float-end">Small: 45 | Large: 60</span></h5>
+            <p>Authentic Ghana jollof seasoned with tasty spices and infused with smoky flavors served with jerk chicken</p>
+          </div>
+        </div>
+        <!-- Special Fried Rice -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Special Fried Rice <span class="price float-end">Small: 45 | Large: 60</span></h5>
+            <p>Fragrant stir-fried rice cooked with beef bits, scrambled eggs, fresh vegetables served with choice protein</p>
+          </div>
+        </div>
+        <!-- Plain Rice -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Plain Rice <span class="price float-end">Small: 50 | Large: 70</span></h5>
+            <p>Fluffy steamed white rice served with tender, rich savory beef strip sauce, sautéed onions, and bell peppers</p>
+          </div>
+        </div>
+        <!-- Biryani Rice -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Biryani Rice <span class="price float-end">Small: 45 | Large: 60</span></h5>
+            <p>Bold, smoky, flavorful, and spicy rice with a rich blend of aromatic spices, served with chicken sticks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pasta-noodles" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">PASTA/NOODLES</h2>
+      <div class="row">
+        <!-- Chicken/Beef Lo mein noodles -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Chicken/Beef Lo mein noodles <span class="price float-end">45</span></h5>
+            <p>Stir-fried noodles tossed with tender chicken or beef, crisp vegetables, and a savory sauce base</p>
+          </div>
+        </div>
+        <!-- Penne Arrabbiata -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Penne Arrabbiata <span class="price float-end">45</span></h5>
+            <p>Penne pasta tossed in a spicy garlic-infused tomato sauce</p>
+          </div>
+        </div>
+        <!-- Chicken Linguine -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Chicken Linguine <span class="price float-end">45</span></h5>
+            <p>Linguine tossed in a chili-infused sauce with garlic, olive oil, served with grilled chicken</p>
+          </div>
+        </div>
+        <!-- Spaghetti -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Spaghetti <span class="price float-end">45</span></h5>
+            <p>Aromatic spaghetti tossed with golden caramelized onions and sautéed garlic, served with chicken chunks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="burgers" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">BURGERS</h2>
+      <div class="row">
+        <!-- Republic’s single -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Republic’s single <span class="price float-end">50</span></h5>
+            <p>Seasoned single beef patty served on toasted bun with lettuce, tomatoes, onions, cheese, pickles & special sauce</p>
+          </div>
+        </div>
+        <!-- Factory double decker -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Factory double decker <span class="price float-end">80</span></h5>
+            <p>Seasoned double beef patty served on toasted bun with lettuce, tomatoes, onions, cheese, pickles, & special sauce</p>
+          </div>
+        </div>
+        <!-- Chicken lickin’ -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Chicken lickin’ <span class="price float-end">55</span></h5>
+            <p>Crunchy chicken patty served on toasted bun with lettuce, tomatoes, onions, cheese, pickles & special sauce</p>
+          </div>
+        </div>
+        <!-- Spicy smoky -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Spicy smoky <span class="price float-end">70</span></h5>
+            <p>Char-grilled beef patty served on toasted bun with lettuce, tomatoes, onions, cheese, pickles & special sauce</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="milksakes" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">MILKSHAKES</h2>
+      <div class="row">
+        <!-- Oreo shakes -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Oreo shakes <span class="price float-end">35</span></h5>
+            <p>Rich and creamy blend of Oreo cookies in cream</p>
+          </div>
+        </div>
+        <!-- Vanilla shakes -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Vanilla shakes <span class="price float-end">30</span></h5>
+            <p>Rich and creamy blend of ice cream and vanilla bean</p>
+          </div>
+        </div>
+        <!-- Banana shakes -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>Banana shakes <span class="price float-end">30</span></h5>
+            <p>Rich and creamy blend of bananas in cream</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="breakfast-brunch" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">BREAKFAST/BRUNCH</h2>
+      <div class="row">
+        <!-- Republic’s Full English -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Republic’s Full English <span class="price float-end">50</span></h5>
+            <p>Fried eggs, sausages, beef strips, baked beans, grilled tomatoes, mushrooms, toast bread/bagels served with coffee/tea of choice</p>
+          </div>
+        </div>
+        <!-- Pancake slam -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Pancake slam <span class="price float-end">50</span></h5>
+            <p>Fluffy American style pancakes served with butter, scrambled eggs, sausages, and fried potato chunks</p>
+          </div>
+        </div>
+        <!-- Custard Delight -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Custard Delight <span class="price float-end">30</span></h5>
+            <p>Soft agege bread served with crispy/fluffy fried bean cakes, creamy vanilla custard, sugar, and condensed milk</p>
+          </div>
+        </div>
+        <!-- Bagel and egg toast -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Bagel and egg toast <span class="price float-end">50</span></h5>
+            <p>Toasted bagel topped with poached eggs, avocado, and tomatoes served with milk tea</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="salads" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">SALADS</h2>
+      <div class="row">
+        <!-- Ghanaian salad -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Ghanaian salad <span class="price float-end">30</span></h5>
+            <p>Lettuce, tomatoes, cucumbers, onions, boiled eggs, baked beans, sweet corn, corned beef dressed with mayo and ketchup</p>
+          </div>
+        </div>
+        <!-- Garden salad -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Garden salad <span class="price float-end">25</span></h5>
+            <p>Lettuce, tomatoes, onions, carrot, cucumber topped with protein of choice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chicken-wings" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">CHICKEN WINGS</h2>
+      <div class="row">
+        <!-- 10 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>10 pieces crispy fried chicken <span class="price float-end">100</span></h5>
+          </div>
+        </div>
+        <!-- 15 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>15 pieces crispy fried chicken <span class="price float-end">130</span></h5>
+          </div>
+        </div>
+        <!-- 25 pieces -->
+        <div class="col-md-4 mb-4">
+          <div class="menu-card p-3">
+            <h5>25 pieces crispy fried chicken <span class="price float-end">200</span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="drinks" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">DRINKS</h2>
+      <div class="row">
+        <!-- List drinks as simple cards -->
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Sobolo</h5>
+            <p>(No price - enjoy as a refreshing drink)</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Fresh Pineapple Juice</h5>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Coca-cola</h5>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Bigo</h5>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="menu-card p-3">
+            <h5>Fanta</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-section">
+    <div class="container">
+      <h4>Have a little fun with the fun</h4>
+      <p>Follow us on social media for more delicious fun!</p>
+      <div class="social-gallery">
+        <img src="https://via.placeholder.com/120x120?text=Social+1" alt="Social 1" />
+        <img src="https://via.placeholder.com/120x120?text=Social+2" alt="Social 2" />
+        <img src="https://via.placeholder.com/120x120?text=Social+3" alt="Social 3" />
+        <img src="https://via.placeholder.com/120x120?text=Social+4" alt="Social 4" />
+      </div>
+      <p class="mt-3 mb-0">&copy; 2025 Johnny Rockets. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
+</body>
+</html>

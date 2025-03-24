@@ -1,371 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Burger King - Food Website Template</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+<head>
+  <meta charset="UTF-8" />
+  <title>Johnny Rockets Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+  <style>
+    /* -------------------- Root Variables (Adjust as needed) -------------------- */
+    :root {
+      --primary-color: #ed1b2f; /* Johnny Rockets Red */
+      --cream-bg: #f7f0e6;     /* Light cream background */
+      --text-color: #333333;
+      --heading-font: 'Helvetica Neue', Arial, sans-serif; /* Or any preferred heading font */
+      --body-font: 'Open Sans', Arial, sans-serif;         /* Or any preferred body font */
+    }
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+    /* -------------------- Global Reset & Body -------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--body-font);
+      background-color: var(--cream-bg);
+      color: var(--text-color);
+    }
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
-        
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-        <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    /* -------------------- Navbar -------------------- */
+    .navbar {
+      background-color: #ffffff;
+      padding: 1rem 0;
+    }
+    .navbar-brand img {
+      max-height: 50px;
+    }
+    .nav-link {
+      color: var(--text-color) !important;
+      margin: 0 0.5rem;
+    }
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    .order-now-btn {
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    .order-now-btn:hover {
+      background-color: #d01627;
+    }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    /* -------------------- Hero Section -------------------- */
+    .hero-section {
+      position: relative;
+      padding: 3rem 1rem;
+    }
+    .hero-text h1 {
+      font-family: var(--heading-font);
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    .hero-text p {
+      max-width: 500px;
+      font-size: 1.1rem;
+    }
+    .hero-img {
+      text-align: right;
+    }
+    .hero-img img {
+      max-width: 100%;
+      height: auto;
+    }
 
-    <body>
-        <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-light navbar-light">
-            <div class="container-fluid">
-                <a href="index.html" class="navbar-b1and">Burger <span>King</span></a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    /* -------------------- Categories Nav -------------------- */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    /* The checkered line is a repeated image background. 
+       Adjust 'background-size' if you have a higher-res pattern. */
+    .categories::before,
+    .categories::after {
+      content: '';
+      display: block;
+      height: 15px;
+      width: 100%;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAECAQAAABV0zUZAAAAG0lEQVR42mNkIBIkOHDgwIEJGZkZwK4KBiQCAHiOH+bwXfc1AAAAAElFTkSuQmCC");
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+      position: absolute;
+      left: 0;
+    }
+    .categories::before {
+      top: 0;
+    }
+    .categories::after {
+      bottom: 0;
+    }
+    .category-link {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--primary-color);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+    .category-link:hover {
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="feature.html" class="nav-item nav-link">Feature</a>
-                        <a href="team.html" class="nav-item nav-link">Chef</a>
-                        <a href="menu.html" class="nav-item nav-link active">Menu</a>
-                        <a href="booking.html" class="nav-item nav-link">Booking</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Nav Bar End -->
-        
-        
-        <!-- Page Header Start -->
-        <div class="page-header mb-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Food Menu</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page Header End -->
-        
-        
-        <!-- Food Start -->
-        <div class="food mt-0">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-burger"></i>
-                            <h2>Burgers</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-snack"></i>
-                            <h2>Snacks</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-cocktail"></i>
-                            <h2>Beverages</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem. 
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Food End -->
-        
+    /* -------------------- Section Headings -------------------- */
+    .section-heading {
+      text-align: center;
+      font-family: var(--heading-font);
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-top: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-subheading {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
 
-        <!-- Menu Start -->
-        <div class="menu">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Food Menu</p>
-                    <h2>Delicious Food Menu</h2>
-                </div>
-                <div class="menu-tab">
-                    <ul class="nav nav-pills justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="burgers" class="container tab-pane active">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Double size burger</span> <strong>$11.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bacon, EGG and Cheese</span> <strong>$13.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Pulled porx Burger</span> <strong>$18.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Fried chicken Burger</span> <strong>$22.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-burger-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="snacks" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bread besan Toast</span> <strong>$35.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Healthy soya nugget snacks</span> <strong>$20.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Tandoori Soya Chunks</span> <strong>$30.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-snack-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="beverages" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Single Cup Brew</span> <strong>$7.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caffe Americano</span> <strong>$9.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caramel Macchiato</span> <strong>$15.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>$8.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>$12.00</strong></h3>
-                                            <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="img/menu-beverage-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Menu End -->
+    /* -------------------- Menu Cards -------------------- */
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .menu-card {
+      background-color: #ffffff;
+      border: 2px solid #f2f2f2;
+      border-radius: 5px;
+      width: 250px;
+      text-align: center;
+      padding: 1rem;
+    }
+    .menu-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .menu-card h5 {
+      font-family: var(--heading-font);
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .menu-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
 
+    /* -------------------- Footer Section -------------------- */
+    .footer-section {
+      padding: 2rem 1rem;
+      text-align: center;
+      background-color: #ffffff;
+      position: relative;
+    }
+    .footer-section::before,
+    .footer-section::after {
+      content: '';
+      display: block;
+      height: 15px;
+      width: 100%;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAECAQAAABV0zUZAAAAG0lEQVR42mNkIBIkOHDgwIEJGZkZwK4KBiQCAHiOH+bwXfc1AAAAAElFTkSuQmCC");
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+      position: absolute;
+      left: 0;
+    }
+    .footer-section::before {
+      top: 0;
+    }
+    .footer-section::after {
+      bottom: 0;
+    }
+    .footer-section h4 {
+      font-family: var(--heading-font);
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    .footer-section p {
+      margin-bottom: 1rem;
+    }
+    .social-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-gallery img {
+      width: 120px;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Logo Placeholder -->
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Johnny Rockets Logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Franchise</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gift Cards</a>
+          </li>
+          <li class="nav-item ms-2">
+            <button class="order-now-btn">ORDER NOW</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Footer Start -->
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="footer-contact">
-                                    <h2>Our Address</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
-                                    <div class="footer-social">
-                                        <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                                        <a href=""><i class="fab fa-youtube"></i></a>
-                                        <a href=""><i class="fab fa-instagram"></i></a>
-                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="footer-link">
-                                    <h2>Quick Links</h2>
-                                    <a href="">Terms of use</a>
-                                    <a href="">Privacy policy</a>
-                                    <a href="">Cookies</a>
-                                    <a href="">Help</a>
-                                    <a href="">FQAs</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="footer-newsletter">
-                            <h2>Newsletter</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
-                            </p>
-                            <div class="form">
-                                <input class="form-control" placeholder="Email goes here">
-                                <button class="btn custom-btn">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
+  <!-- ========== HERO SECTION ========== -->
+  <div class="container hero-section">
+    <div class="row align-items-center">
+      <div class="col-md-6 hero-text">
+        <h1>Explore <br/>Our Menu</h1>
+        <p>
+          A simple, yet great tasting menu of all-American favorites, including freshly made burgers, crispy fries, classic sandwiches, and real ice cream, hand-spun shakes.
+        </p>
+      </div>
+      <div class="col-md-6 hero-img">
+        <!-- Replace with your actual hero image (burger + fries + shake) -->
+        <img
+          src="https://via.placeholder.com/600x400?text=Burger+Fries+Milkshake"
+          alt="Burger and Milkshake"
+        />
+      </div>
+    </div>
+  </div>
 
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- ========== CATEGORY NAV ========== -->
+  <div class="categories">
+    <a href="#burgers" class="category-link">Burgers</a>
+    <a href="#strips-hotdogs" class="category-link">Strips &amp; Hot Dogs</a>
+    <a href="#sandwiches" class="category-link">Sandwiches</a>
+    <a href="#salads" class="category-link">Salads</a>
+    <a href="#loaded-sides" class="category-link">Seriously Loaded Sides</a>
+    <a href="#beverages" class="category-link">Beverages</a>
+    <a href="#kids-meal" class="category-link">Kid's Meal</a>
+    <a href="#shakes" class="category-link">Shakes</a>
+    <a href="#dessert" class="category-link">Dessert</a>
+  </div>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/tempusdominus/js/moment.min.js"></script>
-        <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+  <!-- ========== BURGERS SECTION ========== -->
+  <section id="burgers">
+    <h2 class="section-heading">Burgers</h2>
+    <p class="section-subheading">All burgers are served on a brioche bun.</p>
+    <div class="container menu-items">
+      <!-- Example Menu Item -->
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=The+Rocket+Single"
+          alt="The Rocket Single"
+        />
+        <h5>The Rocket Single</h5>
+        <p>Single beef patty with our signature sauce.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=The+Rocket+Double"
+          alt="The Rocket Double"
+        />
+        <h5>The Rocket Double</h5>
+        <p>Double the beef, double the flavor.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=The+Original"
+          alt="The Original"
+        />
+        <h5>The Original</h5>
+        <p>Classic lettuce, tomato, pickles, onion.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=The+Original+Double"
+          alt="The Original Double"
+        />
+        <h5>The Original Double</h5>
+        <p>Twice the patty for a heartier bite.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+  <!-- ========== CHICKEN STRIPS & HOT DOGS SECTION ========== -->
+  <section id="strips-hotdogs">
+    <h2 class="section-heading">Chicken Strips &amp; Hot Dogs</h2>
+    <div class="container menu-items">
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Chicken+Strips"
+          alt="Chicken Strips"
+        />
+        <h5>Chicken Strips</h5>
+        <p>Hand-breaded and crispy.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=American+Hot+Dog"
+          alt="American Hot Dog"
+        />
+        <h5>American Hot Dog</h5>
+        <p>Classic all-beef hot dog.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Chili+Dog"
+          alt="Chili Dog"
+        />
+        <h5>Chili Dog</h5>
+        <p>Smothered in our savory chili.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SANDWICHES SECTION ========== -->
+  <section id="sandwiches">
+    <h2 class="section-heading">Sandwiches</h2>
+    <div class="container menu-items">
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Philly+Cheese+Steak"
+          alt="Philly Cheese Steak"
+        />
+        <h5>Philly Cheese Steak</h5>
+        <p>Grilled peppers, onions, melted cheese.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Chicken+Club"
+          alt="Chicken Club"
+        />
+        <h5>Chicken Club</h5>
+        <p>Grilled chicken, bacon, lettuce, tomato.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=BLT+Sandwich"
+          alt="BLT Sandwich"
+        />
+        <h5>BLT Sandwich</h5>
+        <p>Crispy bacon, lettuce, tomato on toasted bread.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESSERTS SECTION ========== -->
+  <section id="dessert">
+    <h2 class="section-heading">Desserts</h2>
+    <div class="container menu-items">
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Freshly+Baked+Cookie"
+          alt="Freshly Baked Cookie"
+        />
+        <h5>Freshly Baked Cookies</h5>
+        <p>Warm and gooey, straight from the oven.</p>
+      </div>
+      <div class="menu-card">
+        <img
+          src="https://via.placeholder.com/250x180?text=Fudge+Brownie"
+          alt="Fudge Brownie"
+        />
+        <h5>Fudge Brownie</h5>
+        <p>Rich chocolate brownie topped with fudge sauce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER SECTION ========== -->
+  <footer class="footer-section">
+    <h4>Have a little fun with the fun</h4>
+    <p>Follow us on social media for more delicious fun!</p>
+    <div class="social-gallery">
+      <!-- Replace with real social media images or embed code -->
+      <img
+        src="https://via.placeholder.com/120x120?text=Social+1"
+        alt="Social 1"
+      />
+      <img
+        src="https://via.placeholder.com/120x120?text=Social+2"
+        alt="Social 2"
+      />
+      <img
+        src="https://via.placeholder.com/120x120?text=Social+3"
+        alt="Social 3"
+      />
+      <img
+        src="https://via.placeholder.com/120x120?text=Social+4"
+        alt="Social 4"
+      />
+    </div>
+    <p class="mt-3 mb-0">&copy; 2025 Johnny Rockets. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>
